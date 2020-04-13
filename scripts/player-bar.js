@@ -29,6 +29,10 @@
     $('#time-control input').val(percent);
   }, 1000);
 
+  $('#volume-control input').on('input', function (event) {
+    player.setVolume(event.target.value);
+  })
+
   $('button#previous').on('click', function() {
     if (player.playState !== "playing") {return; }
 
