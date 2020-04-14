@@ -27,6 +27,7 @@
     const percent = (currentTime / duration) * 100;
     $('#time-control .current-time').text(currentTime);
     $('#time-control input').val(percent);
+    $('#time-control .total-time').text(duration);
   }, 1000);
 
   $('#volume-control input').on('input', function (event) {
@@ -38,8 +39,10 @@
 
     const currentSongIndex = album.songs.indexOf(player.currentlyPlaying);
     const previousSongIndex = currentSongIndex -1;
-    if (previousSongIndex === -1){return; }
+    if (previousSongIndex< album.songs[0]){return; }
     const previousSong = album.songs[previousSongIndex];
     helper.playPauseAndUpdate(previousSong);
-  })
+
+  });
+
 }
